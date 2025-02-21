@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signin-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signin-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .signin-container label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .signin-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .signin-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .signin-container button:hover {
+            background-color: #218838;
+        }
+
+        .google-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="signin-container">
+        <h2>Sign In</h2>
+        <form id="signinForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <button id="googleSignIn">
+            <img src="/googleicon.png" alt="Google Icon" class="google-icon">
+            Sign In with Google
+        </button>
+        <form id="otpForm">
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile" required>
+            <button type="button" id="sendOtp">Send OTP</button>
+            <label for="otp">OTP:</label>
+            <input type="text" id="otp" name="otp" required>
+            <button type="submit">Verify OTP</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('signinForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Perform sign-in logic here
+            if (username === 'user' && password === 'password') {
+                alert('Sign-in successful!');
+            } else {
+                alert('Invalid username or password.');
+            }
+        });
+
+        document.getElementById('googleSignIn').addEventListener('click', function() {
+            // Perform Google sign-in logic here
+            alert('Google sign-in clicked!');
+        });
+
+        document.getElementById('sendOtp').addEventListener('click', function() {
+            const mobile = document.getElementById('mobile').value;
+            // Perform send OTP logic here
+            alert(`OTP sent to ${mobile}`);
+        });
+
+        document.getElementById('otpForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const otp = document.getElementById('otp').value;
+            // Perform OTP verification logic here
+            if (otp === '123456') {
+                alert('OTP verified successfully!');
+            } else {
+                alert('Invalid OTP.');
+            }
+        });
+    </script>
+</body>
+</html>

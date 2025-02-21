@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ON MY WAY</title>
+    <style>
+        body {
+            background-color: #F9FAFB;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .tnav{
+            background-color: #01f609;
+            color: black;
+            padding: 10px;
+            width: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .name{
+            font-size: 30px;
+            margin: 0;
+        }
+        .nav-buttons{
+            display: flex;
+            gap: 15px;
+        }
+        .login, .signup{
+            background-color: #01f609;
+            border: none;
+            color: rgb(17, 16, 16);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 24px;
+        }
+        .login:hover, .signup:hover{
+            background-color: rgb(255, 255, 255);
+        }
+        .location-search{
+            margin-top: 20px; /* Added margin to separate from the nav bar */
+            display: flex;
+            flex-direction: column; /* Changed to column direction */
+            align-items: center; /* Center align items */
+            gap: 10px;
+            background-image: url('bgimg.jpeg'); /* Added background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px; /* Added padding for better appearance */
+            border-radius: 24px; /* Added border radius */
+        }
+        .input-container{
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .icon{
+            position: absolute;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        .pickup, .drop{
+            padding-left: 40px; /* Added padding to make space for the icon */
+            padding: 10px;
+            border: rgb(119, 135, 120) 2px solid;
+            border-radius: 24px;
+            font-size: 16px;
+            width: 350px; /* Increased width */
+            text-align:center;/* Align placeholder text to the right */
+        }
+        .pickup:focus, .drop:focus{
+            outline: none;
+            border-color: #01f609;
+        }
+        .view-rides, .text-section button{
+            background-color: rgb(255, 255, 255);
+            border: none;
+            color: rgb(17, 16, 16);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 24px;
+            border: rgb(119, 135, 120) 2px solid;
+        }
+        .view-rides:hover, .text-section button:hover{
+            background-color: #01f609; /* Changed hover background color */
+        }
+        .ride-options{
+            margin-top: 20px; /* Added margin to separate from other elements */
+            display: flex;
+            flex-direction: column; /* Changed to column direction */
+            align-items: flex-start; /* Align items to the left */
+            gap: 20px;
+            padding-left: 20px; /* Added padding to the left */
+            background-color: rgba(255, 255, 255, 0.8); /* Added background color with transparency */
+            border-radius: 24px; /* Added border radius */
+            padding: 20px; /* Added padding */
+        }
+        .ride-option-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ride-option{
+            width: 150px; /* Increased the width of the ride option image */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .ro{ /* Set text color to green */
+            text-decoration:#01f609 underline;/* Add underline text decoration */
+            text-shadow: black 2px; /* Add text shadow */
+        }
+        .info{
+            margin-top: 10px; /* Added margin to separate from other elements */
+            padding: 20px; /* Added padding */
+            background-color: rgb(240, 240, 240); /* Added background color with transparency */
+            border-radius: 24px; /* Added border radius */
+            text-align: left; /* Center align text */
+            width:auto;/* Set width to 100% */
+        }
+        .imp{
+            color: black; /* Set text color to green */
+            font-size: 32px; /* Set font size */
+            font-weight: bold; /* Set font weight */
+        }
+        .imp1{
+            color: #333; /* Set text color */
+            font-size: 28px; /* Set font size */
+            display: flex;
+            align-items: center;
+        }
+        .info-img{
+            width: 120px; /* Set the width of the info image */
+            height: auto; /* Maintain aspect ratio */
+            margin-left: 10px; /* Add margin to the left */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .text-section {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .text-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+        }
+        .text-section h1 span {
+            display: block;
+        }
+        .text-section .underline {
+            width: 4rem;
+            height: 0.25rem;
+            background-color: #01f609; /* Changed underline color to green */
+            margin-bottom: 1rem;
+        }
+        .text-section p {
+            font-size: 1.125rem;
+            color: #4B5563;
+            margin-bottom: 1.5rem;
+        }
+        .text-section button i {
+            margin-left: 0.5rem;
+        }
+        .image-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .image-section img {
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        .image-section2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .image-section2 img {
+            width: 600px; /* Increased width */
+            height: 600px; /* Increased height */
+            border-radius: 0.5rem;
+        }
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .text-section {
+                max-width: 50%;
+                margin-bottom: 0;
+            }
+            .image-section {
+                max-width: 50%;
+            }
+        }
+        footer {
+            background-color: #01f609;
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-container p {
+            margin: 5px 0;
+        }
+
+        .footer-container a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="tnav">
+        <h2 class="name">ON MY WAY</h2>
+        <div class="nav-buttons">
+            <a href="/login.html" class="login">Login</a>
+            <a href="/signin.html" class="signup">Sign Up</a>
+        </div>
+    </div>
+    <div class="location-search">
+        <div class="input-container">
+            <img src="pl.png" class="icon" alt="icon">
+            <input type="text" placeholder="Enter Pickup Location" class="pickup">
+        </div>
+        <div class="input-container">
+            <img src="pl.png" class="icon" alt="icon">
+            <input type="text" placeholder="Enter Drop Location" class="drop">
+        </div>
+        <input type="button" value="View Rides" class="view-rides">
+    </div>
+    <div class="ride-options">
+        <h1 class="ro">Ride Options</h1>
+        <div class="ride-option-container">
+            <img src="bike.png" alt="Bike" class="ride-option">
+            <h2>Bike</h2>
+        </div>
+        <!-- Add more ride options here -->
+    </div>
+    <!--info-->
+    <div class="info">
+        <div class="container">
+            <div class="text-section">
+                <h1>
+                    <span>See Rides Near By,</span>
+                    <span>Low Fares</span>
+                </h1>
+                <div class="underline"></div>
+                <p>We ensure our customers get rides quickly at the most fair prices.</p>
+                <button>
+                    Book a ride
+                    <i>&#8594;</i>
+                </button>
+            </div>
+            <div class="image-section">
+                <img src="https://placehold.co/300x200" alt="Auto rickshaw with passengers">
+                <img src="https://placehold.co/300x200" alt="Delivery person handing over a package">
+                <img src="https://placehold.co/300x200" alt="Bike rider with a passenger">
+                <img src="https://placehold.co/300x200" alt="Car driver with passengers">
+            </div>
+        </div>
+       
+    </div>
+    <!--security-->
+    <div class="security">
+        <div class="container">
+            <div class="text-section">
+                <h1>
+                    <span>Safty for both Users and Rider</span>
+                </h1>
+                <div class="underline"></div>
+                <p>Your safety is our priority. We’re dedicated to making every ride safe and comfortable and trackable.<br><br>
+                How, We Provide 112 Dailer, Emergency Contacts, Chat Support, Even you can share your Location to Trusted one.</p>
+                <button>
+                    Book a ride
+                    <i>&#8594;</i>
+                </button>
+            </div>
+            <div class="image-section2">
+                <img src="https://placehold.co/300x200" alt="Bike rider with a passenger">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 ON MY WAY. All rights reserved.</p>
+            <p>
+                <a href="/privacy.html">Privacy Policy</a> |
+                <a href="/terms.html">Terms of Service</a> |
+                <a href="/contact.html">Contact Us</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        // JavaScript code can be added here if required
+        document.querySelectorAll('.view-rides, .text-section button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Button clicked!');
+            });
+        });
+    </script>
+    
+</body>
+</html>
